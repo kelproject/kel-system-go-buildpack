@@ -14,6 +14,8 @@ then arch=amd64
 fi
 plat=$(uname|tr A-Z a-z)-$arch
 
+steptxt="----->"
+
 step() {
     echo "$steptxt $@"
 }
@@ -44,6 +46,7 @@ else
 fi
 
 GOROOT=$cache/$ver/go export GOROOT
+PATH=$GOROOT/bin:$PATH
 
 cd $build
 ./scripts/setup.sh
